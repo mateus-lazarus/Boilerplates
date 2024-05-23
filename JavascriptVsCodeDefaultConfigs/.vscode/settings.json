@@ -1,0 +1,88 @@
+{
+  "git.suggestSmartCommit": false,
+  "workbench.colorTheme": "Dracula",
+  "breadcrumbs.enabled": true,
+  "extensions.ignoreRecommendations": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBorder": "#85a1bb",
+    "activityBar.activeBackground": "#85a1bb",
+    "panel.border": "#85a1bb33",
+    "sideBar.border": "#85a1bb33",
+    "panelTitle.activeBorder": "#507495",
+    "terminal.tab.activeBorder": "#85a1bb"
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  //text
+  "editor.fontSize": 16,
+  "editor.lineHeight": 24,
+  // "editor.fontFamily": "Cascadia code",
+  "editor.fontFamily": "Jetbrains Mono, bold",
+  "editor.fontLigatures": true,
+  "editor.rulers": [
+    80,
+    120
+  ],
+  //eslint
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.sideBar.location": "left",
+  "editor.formatOnSave": false,
+  "files.autoSave": "off",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.suggestSelection": "first",
+  // highlight matching tag
+  "highlight-matching-tag.highlightSelfClosing": true,
+  "highlight-matching-tag.highlightFromContent": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "terminal.explorerKind": "external",
+  // "terminal.integrated.fontFamily": "Menlo for Powerline",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // languages
+  "cSpell.language": "en, pt_BR ",
+  // tabulation
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize",
+  "editor.autoIndent": "full",
+  // folder icons
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.files.associations": {
+    //"*.js": "Deno"
+  },
+  "material-icon-theme.folders.associations": {
+    "infra": "app",
+    "entities": "class",
+    "schemas": "class",
+    "typeorm": "database",
+    "repositories": "mappings",
+    "http": "container",
+    "migrations": "tools",
+    "modules": "components",
+    "implemnentations": "core",
+    "dtos": "typescript",
+    "fakes": "mock",
+    "websockets": "pipe",
+    "protos": "pipe",
+    "grpc": "pipe",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // "cSpell.words": [
+  //   "escola"
+  // ]
+}

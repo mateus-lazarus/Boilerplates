@@ -1,0 +1,38 @@
+// exemplo 1
+{
+  "*.{js,jsx}": "eslint --fix" // --fix corrige automaticamente os erros mais simples
+}
+// exemplo 2
+{
+  "*.{ts,tsx}": "eslint --fix"
+}
+// exemplo 3
+{
+  "*.{js,jsx,ts,tsx}": "eslint --fix"
+}
+// exemplo 4
+{
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "git add"
+  ],
+}
+// exemplo 5
+{
+  "*.{js,css,md}": "prettier --write" // --write para que o prettier escreva no arquivo
+}
+// exemplo 6
+{
+  "*.js": [
+    "eslint --fix",
+    "jest --passWithNoTests"
+    // --passWithNoTests permite que a verificação passe mesmo que não existam arquivos de teste
+  ]
+}
+// exemplo 7
+{
+  "*.scss": [
+    "stylelint --syntax scss --fix",
+    "git add"
+  ],
+}

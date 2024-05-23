@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "postman.postman-for-vscode",
+        "steoates.autoimport",
+        "yoavbls.pretty-ts-errors",
+        "eamodio.gitlens",
+        "rangav.vscode-thunder-client",
+        "pkief.material-icon-theme"
+    ]
+}
