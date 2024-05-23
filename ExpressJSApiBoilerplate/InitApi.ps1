@@ -3,9 +3,9 @@
 #                 - ERROR HANDLING 
 #                 - UTILS 
 #                 - SERVICES  
-#
-#
-#
+#                 - UNIT TESTS
+#                 - FUNCTIONAL TESTS
+#                 - INTEGRATION TESTS
 #
 #
 #
@@ -51,15 +51,109 @@ function Write-Info($message) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Step 1: Create project directory
 Write-Info "Creating project directory '$ProjectName'..."
 New-Item -ItemType Directory -Name $ProjectName -Force
 Set-Location -Path $ProjectName
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Step 2: Initialize a new Node.js project
 Write-Info "Initializing a new Node.js project..."
 npm init
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Step 3: Install Dependencies
@@ -70,6 +164,10 @@ Write-Info "Installed Express..."
 Write-Info "Installing Nodemon..."
 npm install nodemon
 Write-Info "Installed Nodemon..."
+
+Write-Info "Installing Jest..."
+npm install jest --save-dev
+Write-Info "Installed Jest..."
 
 Write-Info "Installing Eslint..."
 npm install eslint --save-dev
@@ -95,6 +193,29 @@ if ($InstallLintStaged) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Step 4: Create necessary directories and files
 Write-Info "Creating directories and files..."
 
@@ -104,11 +225,20 @@ Write-Info "Creating text-file with useful scripts"
   "scripts": {
     "start": "nodemon app.js",
     "eslint": "eslint .",
-    "eslint-fix": "eslint --fix ."
+    "eslint-fix": "eslint --fix .",
+    "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "prepare": "husky"
   },
   "type": "module"
 }
 '@ | Out-File -FilePath overridePackageAndDeleteAfter.json -Encoding utf8
+
+
+Write-Info "Creating default git ignore"
+@'
+**/node_modules
+**/testFolder
+'@ | Out-File -FilePath .gitignore -Encoding utf8
 
 
 # Create folders directories
@@ -116,6 +246,9 @@ New-Item -ItemType Directory -Name controllers
 New-Item -ItemType Directory -Name routes
 New-Item -ItemType Directory -Name services
 New-Item -ItemType Directory -Name utils
+New-Item -ItemType Directory -Name tests
+New-Item -ItemType Directory -Name tests/unitTests
+New-Item -ItemType Directory -Name tests/unitTests/services
 
 
 # Create main application file 'app.js'
@@ -319,11 +452,85 @@ export const notFoundHandler = (req, res, next) => {
 '@ | Out-File -FilePath routes/mathRoutes.js -Encoding utf8
 
 
+# Create 'tests/unitTests/services/mathService.test.js'
+@'
+import { doubleNumber, squareNumber } from '../../../services/mathService.js';
+
+
+describe("MathService.DoubleNumber()", () => {
+  const input = [0, 1, 2, 3];
+  const expectResults = [0, 2, 4, 6];
+
+  input.forEach( (number, index) => {
+      const expectResult = expectResults[index];
+
+      test(`[${number}] should result in ${expectResult}`, () => {
+        expect(doubleNumber(number)).toBe(expectResult);
+      });
+    }
+  )
+
+});
+
+
+describe("MathService.SquareNumber()", () => {
+  const input = [0, 1, 2, 3];
+  const expectResults = [0, 1, 4, 9];
+
+  input.forEach( (number, index) => {
+      const expectResult = expectResults[index];
+
+      test(`[${number}] should result in ${expectResult}`, () => {
+        expect(squareNumber(number)).toBe(expectResult);
+      });
+    }
+  )
+
+});
+
+'@ | Out-File -FilePath tests/unitTests/services/mathService.test.js -Encoding utf8
+
+
 Write-Info "Project setup complete. You can now run your server with 'node app.js'."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Return to the initial directory
 Set-Location -Path ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Done
