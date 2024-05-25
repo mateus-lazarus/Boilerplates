@@ -169,6 +169,10 @@ Write-Info "Installing Jest..."
 npm install jest --save-dev
 Write-Info "Installed Jest..."
 
+Write-Info "Installing SuperTest..."
+npm install supertest --save-dev
+Write-Info "Installed SuperTest..."
+
 Write-Info "Installing Eslint..."
 npm install eslint --save-dev
 Write-Info "Installed Eslint..."
@@ -226,7 +230,7 @@ Write-Info "Creating text-file with useful scripts"
     "start": "nodemon app.js",
     "eslint": "eslint .",
     "eslint-fix": "eslint --fix .",
-    "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
     "prepare": "husky"
   },
   "type": "module"
