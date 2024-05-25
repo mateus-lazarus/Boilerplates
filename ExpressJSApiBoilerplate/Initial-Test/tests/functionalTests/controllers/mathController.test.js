@@ -1,13 +1,8 @@
+import 'dotenv/config'
 import request from 'supertest';
-import express from 'express';
 import { expect, describe, test } from '@jest/globals'
-import { mathRoutes } from '../../../routes/mathRoutes.js';
-import { generalErrorHandler } from "../../../utils/errorUtils.js";
 
-const app = express();
-app.use(express.json());
-app.use('/', mathRoutes);
-app.use(generalErrorHandler);
+const url = process.env.FUNCTIONAL_TESTS_URL;
 
 describe('mathController', () => {
   test('POST /square should return squared number', async () => {
@@ -15,7 +10,7 @@ describe('mathController', () => {
     const expectedStatusCode = 200;
     const expectedResult = 25;
 
-    const response = await request(app)
+    const response = await request(url)
       .post('/square')
       .send({ number: inputValue });
     
@@ -28,7 +23,7 @@ describe('mathController', () => {
     const expectedStatusCode = 500;
     const expectedResult = 'Invalid number';
 
-    const response = await request(app)
+    const response = await request(url)
       .post('/square')
       .send({ number: inputValue });
 
@@ -41,7 +36,7 @@ describe('mathController', () => {
     const expectedStatusCode = 200;
     const expectedResult = 25;
 
-    const response = await request(app).get(`/square/${inputValue}`);
+    const response = await request(url).get(`/square/${inputValue}`);
     
     expect(response.statusCode).toBe(expectedStatusCode);
     expect(response.body.result).toBe(expectedResult);
@@ -52,7 +47,7 @@ describe('mathController', () => {
     const expectedStatusCode = 500;
     const expectedResult = 'Invalid number';
 
-    const response = await request(app).get(`/square/${inputValue}`);
+    const response = await request(url).get(`/square/${inputValue}`);
 
     expect(response.statusCode).toBe(expectedStatusCode);
     expect(response.body.error.message).toBe(expectedResult);
@@ -63,7 +58,7 @@ describe('mathController', () => {
     const expectedStatusCode = 200;
     const expectedResult = 10;
 
-    const response = await request(app)
+    const response = await request(url)
       .post('/double')
       .send({ number: inputValue });
     
@@ -76,7 +71,7 @@ describe('mathController', () => {
     const expectedStatusCode = 500;
     const expectedResult = 'Invalid number';
 
-    const response = await request(app)
+    const response = await request(url)
       .post('/double')
       .send({ number: inputValue });
 
@@ -89,7 +84,7 @@ describe('mathController', () => {
     const expectedStatusCode = 200;
     const expectedResult = 10;
 
-    const response = await request(app).get(`/double/${inputValue}`);
+    const response = await request(url).get(`/double/${inputValue}`);
     
     expect(response.statusCode).toBe(expectedStatusCode);
     expect(response.body.result).toBe(expectedResult);
@@ -101,7 +96,7 @@ describe('mathController', () => {
     const expectedStatusCode = 500;
     const expectedResult = 'Invalid number';
 
-    const response = await request(app).get(`/double/${inputValue}`);
+    const response = await request(url).get(`/double/${inputValue}`);
 
     expect(response.statusCode).toBe(expectedStatusCode);
     expect(response.body.error.message).toBe(expectedResult);

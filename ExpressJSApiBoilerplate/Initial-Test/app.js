@@ -1,10 +1,11 @@
-﻿import express from "express";
+﻿import 'dotenv/config'
+import express from "express";
 import { homeRoutes } from "./routes/homeRoutes.js";
 import { mathRoutes } from "./routes/mathRoutes.js";
 import { generalErrorHandler, notFoundHandler } from "./utils/errorUtils.js";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Use json body
 app.use(express.json());

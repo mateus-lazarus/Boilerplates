@@ -173,6 +173,10 @@ Write-Info "Installing SuperTest..."
 npm install supertest --save-dev
 Write-Info "Installed SuperTest..."
 
+Write-Info "Installing DotEnv..."
+npm install dotenv --save-dev
+Write-Info "Installed DotEnv..."
+
 Write-Info "Installing Eslint..."
 npm install eslint --save-dev
 Write-Info "Installed Eslint..."
@@ -235,6 +239,7 @@ Write-Info "Creating text-file with useful scripts"
   },
   "type": "module"
 }
+
 '@ | Out-File -FilePath overridePackageAndDeleteAfter.json -Encoding utf8
 
 
@@ -242,7 +247,16 @@ Write-Info "Creating default git ignore"
 @'
 **/node_modules
 **/testFolder
+
 '@ | Out-File -FilePath .gitignore -Encoding utf8
+
+
+Write-Info "Creating default git ignore"
+@'
+PORT=3000
+FUNCTIONAL_TESTS_URL=localhost:3000
+
+'@ | Out-File -FilePath .env.development -Encoding utf8
 
 
 # Create folders directories
