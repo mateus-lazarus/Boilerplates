@@ -7,15 +7,19 @@ const app = express();
 app.use(express.json());
 app.use('/', homeRoutes);
 
+const getHomeRequest = async (path) => {
+  return await request(app).get(path);
+};
+
 describe('homeController', () => {
   test('GET / should return "Hello, world!"', async () => {
-    const response = await request(app).get('/');
+    const response = await getHomeRequest('/');
 
     expect(response.statusCode).toBe(200);
   });
 
   test('GET /about should return "About Page"', async () => {
-    const response = await request(app).get('/about');
+    const response = await getHomeRequest('/about');
 
     expect(response.statusCode).toBe(200);
   });

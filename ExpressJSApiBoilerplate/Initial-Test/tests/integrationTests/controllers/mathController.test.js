@@ -9,14 +9,25 @@ app.use(express.json());
 app.use('/', mathRoutes);
 app.use(generalErrorHandler);
 
+const squarePath = '/square';
+const doublePath = '/double';
+
+const postMathRequest = async (path, input) => {
+  return await request(app)
+    .post(path)
+    .send({ number: input });
+};
+
+const getMathRequest = async (path, input) => {
+  return await request(app).get(`${path}/${input}`);
+};
+
 describe('mathController', () => {
   test('POST /square should return squared number', async () => {
     const inputValue = 5;
     const expectedStatusCode = 200;
 
-    const response = await request(app)
-      .post('/square')
-      .send({ number: inputValue });
+    const response = await postMathRequest(squarePath, inputValue);
     
     expect(response.statusCode).toBe(expectedStatusCode);
   });
@@ -25,9 +36,7 @@ describe('mathController', () => {
     const inputValue = 'abc';
     const expectedStatusCode = 500;
 
-    const response = await request(app)
-      .post('/square')
-      .send({ number: inputValue });
+    const response = await postMathRequest(squarePath, inputValue);
 
     expect(response.statusCode).toBe(expectedStatusCode);
   });
@@ -36,7 +45,7 @@ describe('mathController', () => {
     const inputValue = 5;
     const expectedStatusCode = 200;
 
-    const response = await request(app).get(`/square/${inputValue}`);
+    const response = await getMathRequest(squarePath, inputValue);
     
     expect(response.statusCode).toBe(expectedStatusCode);
   });
@@ -45,7 +54,7 @@ describe('mathController', () => {
     const inputValue = 'abc';
     const expectedStatusCode = 500;
 
-    const response = await request(app).get(`/square/${inputValue}`);
+    const response = await getMathRequest(squarePath, inputValue);
 
     expect(response.statusCode).toBe(expectedStatusCode);
   });
@@ -54,9 +63,7 @@ describe('mathController', () => {
     const inputValue = 5;
     const expectedStatusCode = 200;
 
-    const response = await request(app)
-      .post('/double')
-      .send({ number: inputValue });
+    const response = await postMathRequest(doublePath, inputValue);
     
       expect(response.statusCode).toBe(expectedStatusCode);
   });
@@ -65,9 +72,7 @@ describe('mathController', () => {
     const inputValue = 'abc';
     const expectedStatusCode = 500;
 
-    const response = await request(app)
-      .post('/double')
-      .send({ number: inputValue });
+    const response = await postMathRequest(doublePath, inputValue);
 
     expect(response.statusCode).toBe(expectedStatusCode);
   });
@@ -76,7 +81,7 @@ describe('mathController', () => {
     const inputValue = 5;
     const expectedStatusCode = 200;
 
-    const response = await request(app).get(`/double/${inputValue}`);
+    const response = await getMathRequest(doublePath, inputValue);
     
     expect(response.statusCode).toBe(expectedStatusCode);
   });
@@ -86,7 +91,7 @@ describe('mathController', () => {
     const inputValue = 'abc';
     const expectedStatusCode = 500;
 
-    const response = await request(app).get(`/double/${inputValue}`);
+    const response = await getMathRequest(doublePath, inputValue);
 
     expect(response.statusCode).toBe(expectedStatusCode);
   });
