@@ -1,5 +1,5 @@
 import { expect, jest, describe, beforeEach, it } from '@jest/globals'
-import { getHomePage, getAboutPage } from "../../../controllers/homeController";
+import { getHomePage, getAboutPage } from "./homeController";
 
 describe('HomeController Page Handlers', () => {
   let req, res;

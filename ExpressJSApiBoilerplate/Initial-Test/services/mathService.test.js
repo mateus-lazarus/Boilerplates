@@ -1,5 +1,5 @@
 import { expect, describe, test } from '@jest/globals'
-import { doubleNumber, squareNumber } from '../../../services/mathService.js';
+import { doubleNumber, squareNumber } from './mathService.js';
 
 describe("MathService.DoubleNumber()", () => {
   const input = [0, 1, 2, 3];

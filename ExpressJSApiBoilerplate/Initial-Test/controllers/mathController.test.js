@@ -1,5 +1,5 @@
 import { expect, jest, describe, beforeEach, it } from '@jest/globals'
-import { getSquare, postSquare, getDouble, postDouble } from "../../../controllers/mathController";
+import { getSquare, postSquare, getDouble, postDouble } from "./mathController";
 
 describe('MathController Page Handlers', () => {
   let req, res;
