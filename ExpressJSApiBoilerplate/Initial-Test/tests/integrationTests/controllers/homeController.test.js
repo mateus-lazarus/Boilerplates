@@ -8,7 +8,7 @@ app.use(express.json());
 app.use('/', homeRoutes);
 
 const getHomeRequest = async (path) => {
-  return await request(url).get(path);
+  return await request(app).get(path);
 };
 
 describe('homeController', () => {

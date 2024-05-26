@@ -9,7 +9,6 @@ describe('MathController Page Handlers', () => {
     res = {
       json: jest.fn()
     };
-    next = jest.fn();
   });
 
   describe('getSquare', () => {

@@ -1,5 +1,6 @@
 ﻿import 'dotenv/config'
 import express from "express";
+import process from 'process';
 import { homeRoutes } from "./routes/homeRoutes.js";
 import { mathRoutes } from "./routes/mathRoutes.js";
 import { generalErrorHandler, notFoundHandler } from "./utils/errorUtils.js";

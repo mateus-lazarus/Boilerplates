@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import request from 'supertest';
+import process from 'process';
 import { expect, describe, test } from '@jest/globals'
 
 const url = process.env.FUNCTIONAL_TESTS_URL;
