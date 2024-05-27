@@ -169,6 +169,14 @@ Write-Info "Installing Jest..."
 npm install jest --save-dev
 Write-Info "Installed Jest..."
 
+Write-Info "Installing SuperTest..."
+npm install supertest --save-dev
+Write-Info "Installed SuperTest..."
+
+Write-Info "Installing DotEnv..."
+npm install dotenv --save-dev
+Write-Info "Installed DotEnv..."
+
 Write-Info "Installing Eslint..."
 npm install eslint --save-dev
 Write-Info "Installed Eslint..."
@@ -226,11 +234,12 @@ Write-Info "Creating text-file with useful scripts"
     "start": "nodemon app.js",
     "eslint": "eslint .",
     "eslint-fix": "eslint --fix .",
-    "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
     "prepare": "husky"
   },
   "type": "module"
 }
+
 '@ | Out-File -FilePath overridePackageAndDeleteAfter.json -Encoding utf8
 
 
@@ -238,7 +247,16 @@ Write-Info "Creating default git ignore"
 @'
 **/node_modules
 **/testFolder
+
 '@ | Out-File -FilePath .gitignore -Encoding utf8
+
+
+Write-Info "Creating default git ignore"
+@'
+PORT=3000
+FUNCTIONAL_TESTS_URL=localhost:3000
+
+'@ | Out-File -FilePath .env.development -Encoding utf8
 
 
 # Create folders directories

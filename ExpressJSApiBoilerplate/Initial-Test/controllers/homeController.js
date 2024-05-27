@@ -1,7 +1,7 @@
 ﻿export const getHomePage = (req, res) => {
-  res.send('Hello, world!');
+  res.json('Hello, world!');
 };
 
 export const getAboutPage = (req, res) => {
-  res.send('About Page');
+  res.json('About Page');
 };
