@@ -177,6 +177,18 @@ Write-Info "Installing DotEnv..."
 npm install dotenv --save-dev
 Write-Info "Installed DotEnv..."
 
+Write-Info "Installing Helmet..."
+npm install helmet
+Write-Info "Installed Helmet..."
+
+Write-Info "Installing DependencyCruiser..."
+npm install dependency-cruiser --save-dev 
+Write-Info "Installed DependencyCruiser..."
+
+Write-Info "Configuring DependencyCruiser..."
+npx depcruise --init
+Write-Info "Configured DependencyCruiser..."
+
 Write-Info "Installing Eslint..."
 npm install eslint --save-dev
 Write-Info "Installed Eslint..."

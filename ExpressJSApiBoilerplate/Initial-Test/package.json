@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
+    "arch-test": "npx depcruise source --output-type err-html --output-to architectural-tests-results.html --config --metrics",
+    "arch-test-info": "npx depcruise --info",
     "prepare": "husky",
-    "start": "nodemon app.js",
+    "start": "nodemon source/app.js",
     "eslint": "eslint .",
     "eslint-fix": "eslint --fix ."
   },
@@ -14,10 +16,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
+    "helmet": "^7.1.0",
     "nodemon": "^3.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.3.0",
+    "dependency-cruiser": "^16.3.2",
     "dotenv": "^16.4.5",
     "eslint": "^9.3.0",
     "globals": "^15.3.0",
