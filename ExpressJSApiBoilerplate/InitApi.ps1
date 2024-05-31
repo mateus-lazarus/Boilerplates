@@ -177,6 +177,10 @@ Write-Info "Installing DotEnv..."
 npm install dotenv --save-dev
 Write-Info "Installed DotEnv..."
 
+Write-Info "Installing Helmet..."
+npm install helmet
+Write-Info "Installed Helmet..."
+
 Write-Info "Installing DependencyCruiser..."
 npm install dependency-cruiser --save-dev 
 Write-Info "Installed DependencyCruiser..."
