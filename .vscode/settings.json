@@ -1,5 +1,11 @@
 {
   "cSpell.words": [
     "depcruise"
-  ]
+  ],
+  "yaml.schemas": {
+    "https://www.artillery.io/schema.json": [
+      "file:///c%3A/Estudos/Boilerplates/ExpressJSApiBoilerplate/Initial-Test/tests/loadTests/homeRoutes-test.yml",
+      "file:///c%3A/Estudos/Boilerplates/ExpressJSApiBoilerplate/Initial-Test/tests/loadTests/mathRoutes-test.yml"
+    ]
+  }
 }
