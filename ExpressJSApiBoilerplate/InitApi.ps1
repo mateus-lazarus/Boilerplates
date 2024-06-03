@@ -181,6 +181,10 @@ Write-Info "Installing Helmet..."
 npm install helmet
 Write-Info "Installed Helmet..."
 
+Write-Info "Installing Artillery..."
+npm install artillery --save-dev
+Write-Info "Installed Artillery..."
+
 Write-Info "Installing DependencyCruiser..."
 npm install dependency-cruiser --save-dev 
 Write-Info "Installed DependencyCruiser..."
