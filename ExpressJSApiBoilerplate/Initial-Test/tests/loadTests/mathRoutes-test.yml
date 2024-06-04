@@ -31,15 +31,15 @@ scenarios:
   - flow:
       - loop:
           - get:
-              url: '/square/2'
+              url: '/math/square/2'
           - get:
-              url: '/double/2'
+              url: '/math/double/2'
           - post:
-              url: '/square'
+              url: '/math/square'
               json:
                 number: 2
           - post:
-              url: '/double'
+              url: '/math/double'
               json:
                 number: 2
         count: 10
