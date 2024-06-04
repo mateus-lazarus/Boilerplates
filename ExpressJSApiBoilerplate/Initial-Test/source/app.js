@@ -15,6 +15,12 @@ app.use(helmet());
 // Use json body
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(`URL: ${req.originalUrl}`);
+  console.log(`Path: ${req.path}`);
+  next();
+}); 
+
 // Use the routes
 app.use("/", homeRoutes);
 app.use("/math", mathRoutes);

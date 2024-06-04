@@ -7,6 +7,8 @@
     "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
     "arch-test": "npx depcruise source --output-type err-html --output-to architectural-tests-results.html --config --metrics",
     "arch-test-info": "npx depcruise --info",
+    "home-load-test": "npx artillery run tests/loadTests/homeRoutes-test.yml",
+    "math-load-test": "npx artillery run tests/loadTests/mathRoutes-test.yml",
     "prepare": "husky",
     "start": "nodemon source/app.js",
     "eslint": "eslint .",
