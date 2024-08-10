@@ -1,10 +1,14 @@
-﻿import 'dotenv/config'
+﻿import dotenv from 'dotenv';
 import express from "express";
 import process from 'process';
 import helmet from "helmet";
 import { homeRoutes } from "./routes/homeRoutes.js";
 import { mathRoutes } from "./routes/mathRoutes.js";
 import { generalErrorHandler, notFoundHandler } from "./utils/errorUtils.js";
+import { messagingRoutes } from "./routes/messagingRoutes.js";
+
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,6 +28,7 @@ app.use((req, res, next) => {
 // Use the routes
 app.use("/", homeRoutes);
 app.use("/math", mathRoutes);
+app.use("/messaging", messagingRoutes);
 
 // Middlewares (Order matters!)
 app.use(notFoundHandler);
