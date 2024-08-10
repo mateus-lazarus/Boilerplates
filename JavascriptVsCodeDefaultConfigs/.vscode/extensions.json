@@ -6,6 +6,13 @@
         "yoavbls.pretty-ts-errors",
         "eamodio.gitlens",
         "rangav.vscode-thunder-client",
-        "pkief.material-icon-theme"
+        "pkief.material-icon-theme",
+        "ms-vscode-remote.remote-wsl",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "davidanson.vscode-markdownlint",
+        "ms-azuretools.vscode-docker",
+        "cweijan.vscode-office"
     ]
 }

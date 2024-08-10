@@ -4,16 +4,11 @@
 Title: # Title of task modification
 TaskLink: # Task link
 Description: # Description of modification
-GitVersion: # Application version
+GitVersion: # Application version ( Following semantic versioning : https://semver.org/ )
 TestPlan: # Evidence of acceptance scenarios for code implementation (Usually on task)
 PersonRequesting: # dev-personal-email@email.com
 
 ```
-
-
-
-
-
 
 
 # Checklist
