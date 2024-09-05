@@ -13,6 +13,13 @@
         "ms-python.vscode-pylance",
         "davidanson.vscode-markdownlint",
         "ms-azuretools.vscode-docker",
-        "cweijan.vscode-office"
+        "cweijan.vscode-office",
+        "artilleryio.vscode-artillery",
+        "naumovs.color-highlight",
+        "dracula-theme.theme-dracula",
+        "kisstkondoros.vscode-gutter-preview",
+        "bierner.markdown-mermaid",
+        "ms-vscode.powershell",
+        "esbenp.prettier-vscode"
     ]
 }
